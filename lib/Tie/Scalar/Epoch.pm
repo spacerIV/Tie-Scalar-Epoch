@@ -32,8 +32,8 @@ sub FETCH {
 
 =head1 NAME
 
-Tie::Scalar::Epoch - Create a scalar that always returns the number
-of seconds since the epoch.
+Tie::Scalar::Epoch - Create a scalar that always returns the number 
+of non-leap seconds since whatever time the system considers to be the epoch.
 
 =head1 SYNOPSIS
 
@@ -42,7 +42,7 @@ of seconds since the epoch.
     
     print "$epoch\n";        # eg. 1351113480
     sleep 2;                 # wait 2 seconds...
-    print "$timestamp\n";    # ... 1351113482
+    print "$epoch\n";    # ... 1351113482
     
     # this will die; $epoch is a readonly variable
     $epoch = '2012';
@@ -69,7 +69,7 @@ The following options can be passed in a hashref to C<tie>.
 =item C<no_die>
 
 Do not throw an exception when attempting to assign to a
-timestamp. This module will still emit a warning if you
+tied scalar. This module will still emit a warning if you
 have warnings enabled.
 
 =back
